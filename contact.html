@@ -3,7 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us - Great Eastern Seafood</title>
+<title>Contact Us | Great Eastern Seafood Boston MA</title>
+<meta name="description" content="Contact Great Eastern Seafood at 88 Black Falcon Ave, Boston MA. Call 617-428-9400 or email sales@greateasternsfd.com. Wholesale seafood inquiries welcome.">
+<meta name="keywords" content="contact Great Eastern Seafood, seafood supplier Boston contact, wholesale seafood inquiry Boston, Black Falcon Ave Boston seafood, 617-428-9400">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Great Eastern Seafood">
+<link rel="canonical" href="https://www.greateasternsfd.com/contact.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Great Eastern Seafood">
+<meta property="og:title" content="Contact Great Eastern Seafood | Boston Wholesale Seafood">
+<meta property="og:description" content="Get in touch with our sales team. Located at 88 Black Falcon Ave, Boston MA 02210. Phone: 617-428-9400. Monday to Friday, 7AM to 4PM EST.">
+<meta property="og:url" content="https://www.greateasternsfd.com/contact.html">
+<meta property="og:image" content="https://www.greateasternsfd.com/assets/img/hero-bg.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Great Eastern Seafood | Boston Wholesale Seafood">
+<meta name="twitter:description" content="Get in touch with our sales team. Located at 88 Black Falcon Ave, Boston MA 02210. Phone: 617-428-9400. Monday to Friday, 7AM to 4PM EST.">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "FoodEstablishment",
+      "name": "Great Eastern Seafood",
+      "description": "Fresh seafood supplier and wholesale distributor based in Boston, MA. MSC Certified, SQF Level 2, serving restaurants, hotels, and distributors since 1982.",
+      "url": "https://www.greateasternsfd.com",
+      "telephone": "+16174289400",
+      "email": "sales@greateasternsfd.com",
+      "foundingDate": "1982",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "88 Black Falcon Ave, Suite 160",
+        "addressLocality": "Boston",
+        "addressRegion": "MA",
+        "postalCode": "02210",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.3467,
+        "longitude": -71.0389
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "07:00",
+        "closes": "16:00"
+      },
+      "hasCredential": ["MSC Chain of Custody Certified","SQF Level 2 Certified","HACCP Approved"]
+    }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
@@ -96,6 +148,24 @@
   .reveal-delay-1{transition-delay:0.1s;}
   @media(max-width:1024px){nav{padding:0 24px;}.container{padding:0 24px;}.contact-grid{grid-template-columns:1fr;gap:56px;}.footer-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:768px){.nav-links{display:none;}.hero-content{padding:0 24px;padding-top:80px;}.contact-form-wrap{padding:36px 24px;}.form-row{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}.map-details{flex-direction:column;gap:24px;}}
+
+  /* MOBILE NAV */
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 200; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: transform 0.3s ease, opacity 0.3s ease; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(7,29,73,0.98); z-index: 150; flex-direction: column; align-items: center; justify-content: center; gap: 8px; opacity: 0; transition: opacity 0.3s ease; }
+  .mobile-menu.open { opacity: 1; }
+  .mobile-menu a { color: var(--white); text-decoration: none; font-family: "Barlow Condensed", sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 32px; opacity: 0.75; transition: opacity 0.2s, color 0.2s; }
+  .mobile-menu a:hover { opacity: 1; color: var(--light-blue); }
+  .mobile-menu .mobile-cta { background: var(--mid-blue); color: var(--white) !important; opacity: 1 !important; margin-top: 16px; border-radius: 2px; }
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; }
+    .nav-links { display: none; }
+    .mobile-menu { display: flex; pointer-events: none; }
+    .mobile-menu.open { pointer-events: all; }
+  }
 </style>
 </head>
 <body>
@@ -108,7 +178,17 @@
     <li><a href="about.html#certifications">Certifications</a></li>
     <li><a href="contact.html" class="active nav-cta">Contact Us</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="products.html">Products</a>
+  <a href="about.html#certifications">Certifications</a>
+  <a href="contact.html" class="mobile-cta">Contact Us</a>
+</div>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -291,6 +371,22 @@
       alert("Something went wrong. Please try again or email ssawyer@greateasternsfd.com directly.");
     }
   }
+
+  // Mobile menu
+  function toggleMenu() {
+    const menu = document.getElementById("mobile-menu");
+    const btn = document.getElementById("nav-hamburger");
+    menu.classList.toggle("open");
+    btn.classList.toggle("open");
+    document.body.style.overflow = menu.classList.contains("open") ? "hidden" : "";
+  }
+  document.querySelectorAll(".mobile-menu a").forEach(a => {
+    a.addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.remove("open");
+      document.getElementById("nav-hamburger").classList.remove("open");
+      document.body.style.overflow = "";
+    });
+  });
 </script>
 </body>
 </html>
