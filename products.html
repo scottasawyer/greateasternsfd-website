@@ -512,7 +512,6 @@
       document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
-      // re-trigger reveals for newly visible panel
       document.querySelectorAll("#tab-" + btn.dataset.tab + " .reveal").forEach(el => {
         el.classList.remove("visible");
         setTimeout(() => observer.observe(el), 10);
@@ -523,14 +522,17 @@
   // Product card expand/collapse
   function toggleCard(card) {
     const isExpanded = card.classList.contains("expanded");
-    document.querySelectorAll(".product-card.expanded").forEach<script>
-  const nav = document.getElementById("main-nav");
-  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
-  const reveals = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+    document.querySelectorAll(".product-card.expanded").forEach(c => c.classList.remove("expanded"));
+    if (!isExpanded) card.classList.add("expanded");
+  }
+
+  // Deep link to frozen tab
+  if (window.location.hash === "#frozen") {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+    document.querySelector('[data-tab="frozen"]').classList.add("active");
+    document.getElementById("tab-frozen").classList.add("active");
+  }
 </script>
 </body>
 </html>
